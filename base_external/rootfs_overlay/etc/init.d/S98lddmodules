@@ -1,0 +1,24 @@
+#!/bin/sh
+
+KVER=$(uname -r)
+MOD_PATH="/lib/modules/$KVER/extra"
+
+case "$1" in
+  start)
+    cd "$MOD_PATH" || { echo "Directory $MOD_PATH not found"; exit 1; }
+    /usr/bin/scull_load || echo "scull_load failed"
+    /usr/bin/module_load faulty || echo "module_load faulty failed"
+    modprobe hello || echo "hello module failed"
+   ;;
+
+ stop)
+   /usr/bin/scull_unload
+   /usr/bin/module_unload faulty
+   rmmod hello
+   ;;
+ *)
+   echo "Invalid"
+   exit 1
+esac
+
+exit 0
