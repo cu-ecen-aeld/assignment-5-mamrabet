@@ -22,7 +22,7 @@ define AESD_CHAR_DRIVER_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 -D $(@D)/$(AESD_CHAR_DRIVER_SUBDIR)/aesdchar.ko $(TARGET_DIR)/lib/modules/$(LINUX_VERSION_PROBED)/extra/aesdchar.ko
 	$(INSTALL) -m 0755 $(@D)/$(AESD_CHAR_DRIVER_SUBDIR)/aesdchar.ko $(TARGET_DIR)/usr/bin/aesdchar.ko
 	$(INSTALL) -m 0755 $(@D)/$(AESD_CHAR_DRIVER_SUBDIR)/aesdchar_load $(TARGET_DIR)/usr/bin/
-	$(INSTALL) -m 0755 $(@D)/$(AESD_CHAR_DRIVER_SUBDIR)/aesdchar_unload (TARGET_DIR)/usr/bin/
+	$(INSTALL) -m 0755 $(@D)/$(AESD_CHAR_DRIVER_SUBDIR)/aesdchar_unload $(TARGET_DIR)/usr/bin/
 endef
 $(eval $(kernel-module))
 $(eval $(generic-package))
