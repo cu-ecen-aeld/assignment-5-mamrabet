@@ -8,12 +8,14 @@ case "$1" in
     cd "$MOD_PATH" || { echo "Directory $MOD_PATH not found"; exit 1; }
     /usr/bin/scull_load || echo "scull_load failed"
     /usr/bin/module_load faulty || echo "module_load faulty failed"
+    /usr/bin/aesdchar_load || echo "aesdchar_load faulty failed"
     modprobe hello || echo "hello module failed"
    ;;
 
  stop)
    /usr/bin/scull_unload
    /usr/bin/module_unload faulty
+   /usr/bin/aesdchar_unload   
    rmmod hello
    ;;
  *)
